@@ -1,0 +1,46 @@
+{
+  "name": "virtual-showcase-experience",
+  "version": "0.1.2",
+  "description": "Microsoft Surface Virtual Showcase Experience",
+  "scripts": {
+    "dev": "cross-env WORKER_THREADS=1 parcel src/index.html --no-hmr",
+    "build": "parcel build src/index.html --no-scope-hoist --no-minify",
+    "lint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innov8ight/virtual-showcase-experience.git"
+  },
+  "author": "innov8ight",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@babylonjs/core": "4.2.0",
+    "@babylonjs/loaders": "4.2.0",
+    "animejs": "^3.2.1",
+    "driftless": "2.0.3",
+    "mitt": "2.1.0",
+    "splitting": "1.0.6",
+    "swiper": "6.3.5",
+    "vee-validate": "4.0.0",
+    "vue": "3.0.2",
+    "vue2-circle-progress": "1.2.3",
+    "yup": "0.30.0"
+  },
+  "devDependencies": {
+    "@babylonjs/inspector": "^4.2.0",
+    "@vue/compiler-sfc": "^3.0.2",
+    "cross-env": "7.0.2",
+    "eslint": "7.14.0",
+    "eslint-plugin-vue": "^7.1.0",
+    "parcel": "2.0.0-nightly.460",
+    "sass": "^1.27.0"
+  },
+  "browserslist": [
+    "last 3 and_chr versions",
+    "last 3 chrome versions",
+    "last 3 opera versions",
+    "last 3 ios_saf versions",
+    "last 3 safari versions"
+  ]
+}

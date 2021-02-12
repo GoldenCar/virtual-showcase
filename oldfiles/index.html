@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <script src="label.js"></script>
+    <script src="video-on-node.js"></script>
+    <script src="clicky-play-glow.js"></script>
+    <script src="animate-open.js"></script>
+    <script src="cursor-no-drag.js"></script>
+
+    <style>
+      html, body {
+        font-family: sans-serif;
+      }
+
+      .label {
+        position: absolute;
+        transform: translate(0%, -50%);
+        padding: 16px 28px 22px 20px;
+        border-radius: 4px;
+        /* color: white;
+        background: rgba(0, 0, 0, 0.8); */
+        font-size: 16px;
+        z-index: 1;
+      }
+
+      .label-title {
+        font-size: 36px;
+      }
+
+      .label p {
+        margin: 0;
+      }
+
+      .label-left {
+        transform: translate(-100%, -50%);
+        padding: 16px 20px 22px 28px;
+        text-align: right;
+      }
+
+      #animate {
+        position: fixed;
+        top:0;
+      }
+    </style>
+  </head>
+  <body>
+    <a-scene raycaster="objects: .clickable;" cursor-no-drag="rayOrigin: mouse;" renderer="colorManagement: true; physicallyCorrectLights: true;">
+      <a-assets>
+        <a-asset-item id="surface-book-3" src="laptop.glb"></a-asset-item>
+      </a-assets>
+    
+      <a-entity animate-open gltf-model="#surface-book-3" video-on-node="name: Screen; src: #screen-demo;" clicky-play-glow="glowNode: Screen; clickSrc: #keyboard-target; videoSrc: #screen-demo;">
+        <a-entity label="labelOffset: -10 11 -3;" position="-6.5 0.55 -3.65"><div class="label label-left">
+          <div class="label-title">10th Gen</div>
+          <p>
+            Intel&reg; Core&trade;<br>
+            Processor
+          </p>
+        </div></a-entity>
+        <a-entity label="labelOffset: -10 5 0" position="-7.4 1 -1.25"><div class="label label-left">
+          <p>Up to</p>
+          <div class="label-title">32GB</div>
+          <p>RAM</p>
+        </div></a-entity>
+        <a-entity label="labelOffset: 12 10 -3" position="7.35 10.8 -7.5"><div class="label">
+          <div class="label-title">15&quot;</div>
+          <p>
+            PixelSense&trade;<br>
+            Display
+          </p>
+        </div></a-entity>
+        <a-entity label="labelOffset: 12 5 0" position="7.4 0.55 -3.65"><div class="label">
+          <p>Up to</p>
+          <div class="label-title">1660 Ti</div>
+          <p>NVIDIA&reg; GeForce&reg; Graphics</p>
+        </div></a-entity>
+        <a-box class="clickable" id="keyboard-target" position="0 0.5 0" scale="15 0.5 6" visible="false"></a-box>
+      </a-entity>
+
+      <a-entity camera="fov: 55;" orbit-controls="target: 0 3 0; minDistance: 1.5; maxDistance: 180; initialPosition: 8 16 24"></a-entity>
+  
+      <a-entity light="type: ambient; color: #eee; intensity: 3;"></a-entity>
+      <a-entity light="type: directional; color: #FFF; intensity: 20;" position="8 15 20"></a-entity>
+
+      <video id="screen-demo" src="example.mp4"></video>
+    </a-scene>
+
+    <button id="animate">Animate</button>
+  </body>
+</html>
